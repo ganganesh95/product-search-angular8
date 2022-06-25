@@ -1,0 +1,35 @@
+<ng-container *ngIf="paginationStarted">
+    <mat-paginator [length]="totalPages" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]"
+        (page)="handlePaginationEvent($event)">
+    </mat-paginator>
+</ng-container>
+<ng-container *ngIf="getProductListLoading; else showResults">
+    <div class="dot"></div>
+</ng-container>
+<ng-template #showResults>
+    <ng-container *ngIf="productLists?.length > 0">
+        <div class="pb-3">
+            <span>RESULTS</span>
+            <ng-container *ngFor="let product of productLists">
+                <div class="pt-3">
+                    <div class="card" (click)="onProductClick(product)">
+                        <app-product-detail [productImage]="product?.images[0]" [isOfficialProduct]="product?.official"
+                            [productName]="product?.name" [reviewRating]="product?.reviewRating"
+                            [reviewCount]="product?.reviewCount" [priceDisplay]="product?.priceDisplay"
+                            [strikeThroughPriceDisplay]="product?.strikeThroughPriceDisplay"
+                            [discount]="product?.discount" [merchantName]="product?.merchantName"
+                            [merchantLocation]="product?.merchantLocation">
+                        </app-product-detail>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+    </ng-container>
+</ng-template>
+<ng-template #errorPopUp>
+    <div class="error-body">
+    {{errorMessage}}
+    <div class="row mt-3"><button type="button" class="btn btn-secondary" (click)="closeDialog()">Close</button></div>
+</div>
+    
+</ng-template>

@@ -1,0 +1,81 @@
+<button type="button" class="btn btn-secondary" (click)="handleBackNavigation()">Back</button>
+<ng-container *ngIf="searchTerm">
+    <span class="searchpath">Home --> Search --> "{{searchTerm}}"</span>
+</ng-container>
+<div class="row pt-3">
+    <div class="col-2" style="width: fit-content;">
+        <ng-container *ngFor="let image of selectedProduct?.images; let i = index">
+            <div class="card" [ngClass]="{'img-selected': i === imgSelected}" (click)="imgSelected = i">
+                <img src="{{image}}" alt="product image" width="100" height="100">
+            </div>
+        </ng-container>
+    </div>
+    <div class="col-4" style="text-align: right;">
+        <img src="{{selectedProduct?.images[imgSelected]}}" alt="product image">
+    </div>
+    <div class="col-6">
+        <ng-container *ngIf="selectedProduct?.official">
+            <span class="fontSize11">official product</span>
+        </ng-container>
+        <h5>{{selectedProduct?.name}}</h5>
+        Brand: <span class="brandName">{{selectedProduct?.brand}}</span>
+        <div class="mb-2">
+            <span *ngIf="selectedProduct?.reviewRating; else noRatings"
+                class="fontSize14">{{selectedProduct?.reviewRating}}/5</span>
+            <ng-template #noRatings><span class="fontSize14 greyColor">Be the
+                    first to
+                    rate</span></ng-template>
+            <span class="fontSize11 ml5">({{selectedProduct?.reviewCount}}
+                ratings)</span>
+        </div>
+        <div>
+            <span class="fontSize14">Category: {{selectedProduct?.categoryName}}</span>
+        </div>
+        <hr>
+        <ng-container *ngIf="selectedProduct?.strikeThroughPriceDisplay">
+            <div class="row greyColor">
+                <div class="col-1 mrp">
+                    <span class="fontSize14">M.R.P.: </span>
+                </div>
+                <div class="col-9 p-0">
+                    <span class="strikeThroughPriceDisplay">
+                        {{selectedProduct?.strikeThroughPriceDisplay}}</span>
+                </div>
+            </div>
+        </ng-container>
+        <ng-container *ngIf="selectedProduct?.priceDisplay">
+            <div class="row">
+                <div class="col-1" class="dealPrice">
+                    <span class="fontSize14">Deal Price: </span>
+                </div>
+                <div class="col-9 p-0">
+                    <span class="priceDisplay">{{selectedProduct?.priceDisplay}}</span>
+                </div>
+            </div>
+        </ng-container>
+        <ng-container *ngIf="selectedProduct?.strikeThroughPriceDisplay && selectedProduct?.discount">
+            <div class="row">
+                <div class="col-1 youSave">
+                    <span class="fontSize14">You Save: </span>
+                </div>
+                <div class="col-9 p-0">
+                    <span *ngIf="selectedProduct?.priceDisplay" class="discount">{{selectedProduct?.discount}}%</span>
+                </div>
+            </div>
+        </ng-container>
+        <div class="mt-3">
+            <span class="fontSize14">
+                Sold by {{selectedProduct?.merchantName}}
+            </span>
+        </div>
+        <div>
+            <span class="fontSize14">
+                <i class="material-icons">&#xe55f;</i> {{selectedProduct?.merchantLocation}}
+            </span>
+        </div>
+        <hr>
+        <h5>About this item</h5>
+        <div [innerHtml]="selectedProduct?.uniqueSellingPoint" class="fontSize15">
+        </div>
+    </div>
+</div>

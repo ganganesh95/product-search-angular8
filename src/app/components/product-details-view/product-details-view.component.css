@@ -1,0 +1,41 @@
+.img-selected {
+    border-color: #e77600;
+}
+
+.discount {
+    margin-left: 5px;
+    font-size: 14px;
+    color: #CC0C39;
+}
+
+.youSave {
+    padding: 0 !important;
+    text-align: right;
+    width: 12%
+}
+
+.priceDisplay {
+    margin-left: 5px;
+    font-size: 18px;
+    color: #CC0C39;
+}
+
+.dealPrice {
+    padding-right:0;text-align: right; width: 12%
+}
+
+.strikeThroughPriceDisplay {
+    text-decoration: line-through;margin-left: 5px;font-size: 14px
+}
+
+.mrp {
+    padding-right: 0;text-align: right; width: 12%
+}
+
+.brandName {
+    font-weight: 500;
+}
+
+.searchpath {
+    margin-left: 2rem;
+}

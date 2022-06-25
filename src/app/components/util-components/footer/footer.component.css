@@ -1,0 +1,11 @@
+.footer-bg {
+    background-color: darkslategray;
+    color: white;
+    text-align: center;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 1rem;
+    height: 50px;
+}

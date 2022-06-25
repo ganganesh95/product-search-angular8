@@ -1,0 +1,7 @@
+{
+    "/backend/search/products": {
+      "target": "https://www.blibli.com/",
+      "secure": true,
+      "changeOrigin": true
+    }
+  }

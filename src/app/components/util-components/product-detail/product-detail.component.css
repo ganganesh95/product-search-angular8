@@ -1,0 +1,20 @@
+.discount {
+    margin-left: 5px;
+    font-size: 14px;
+}
+
+.strikeThroughPriceDisplay {
+    margin-left: 5px;
+    font-size: 13px;
+    text-decoration: line-through;
+}
+
+.priceDisplay {
+    font-size: 21px;
+    color: #B12704;
+}
+
+.firstRating {
+    font-size: 14px;
+    color: grey;
+}

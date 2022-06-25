@@ -1,0 +1,34 @@
+<div class="row">
+    <div class="col-2" style="margin: auto">
+        <img src="{{productImage}}" alt="product image" width="200" height="200">
+    </div>
+    <div class="col-10">
+        <div class="m-3">
+            <ng-container *ngIf="isOfficialProduct">
+                <span class="fontSize11">official product</span>
+            </ng-container>
+            <h5 class="mb-3">{{productName}}</h5>
+            <div class="mb-3">
+                <span *ngIf="reviewRating; else noRatings" class="fontSize14">{{reviewRating}}/5</span>
+                <ng-template #noRatings><span clas="firstRating">Be the first to rate</span></ng-template>
+                <span class="fontSize11 ml5">({{reviewCount}} ratings)</span>
+            </div>
+            <div>
+                <span *ngIf="priceDisplay" class="priceDisplay">{{priceDisplay}}</span>
+                <span *ngIf="strikeThroughPriceDisplay"
+                    class="strikeThroughPriceDisplay">{{strikeThroughPriceDisplay}}</span>
+                <span *ngIf="strikeThroughPriceDisplay && discount" class="discount">({{discount}}% off)</span>
+            </div>
+            <div>
+                <span class="fontSize14">
+                    Sold by {{merchantName}}
+                </span>
+            </div>
+            <div>
+                <span class="fontSize14">
+                    <i class="material-icons">&#xe55f;</i> {{merchantLocation}}
+                </span>
+            </div>
+        </div>
+    </div>
+</div>

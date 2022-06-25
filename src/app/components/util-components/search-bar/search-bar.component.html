@@ -1,0 +1,12 @@
+<div class="mb-4 p-3" style="background-color: #d6d8d9;">
+    <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Product name eg: samsung" formControlName="searchText">
+            <div class="input-group-append">
+                <button class="btn btn-secondary" type="submit" [disabled]="!searchForm.valid">
+                    <i class="fa fa-search"></i>
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
